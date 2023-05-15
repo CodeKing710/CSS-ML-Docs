@@ -7,4 +7,5 @@ Demonstrations and tutorials included above.
 ## Source Code
 
 [CSS-ML](https://github.com/SubLock69/CSS-ML)
-[Loaded.js](https://github.com/SubLock69/Loaded.js)
+
+[Loaded.js](https://github.com/SubLock69/loaded.js)
