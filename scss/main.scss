@@ -1,0 +1,12 @@
+@import "config";
+@import "colors";
+
+html {
+  @include align(0,0); //Force document to be absolute aligned
+}
+nav {
+  @include fix();
+}
+* {
+  @include set-colors(darken-bg($cadet-blue));
+}

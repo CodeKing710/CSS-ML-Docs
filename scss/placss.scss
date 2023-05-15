@@ -1,0 +1,105 @@
+@import "config";
+@import "utils";
+
+/* GENERAL PAGE ALIGNMENT FOR ALL ITEMS */
+* {
+  box-sizing: border-box !important;
+  font-size: 1em;
+  font-family: 'Open Sans', sans-serif;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin: $common-margin; padding: 0;
+}
+body {z-index: 0;}
+
+//Handle all wrapper and children
+wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: $common-padding;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  header {
+    position: relative;
+    padding: 5px 0;
+    text-align: center;
+    h1 {
+        font-size: 2.5em;
+    }
+  }
+  main {
+      flex: 1;
+      padding: 10px;
+      & > * {padding: 2px; margin: 2px;}
+  }
+  footer {
+    height: 200px;
+  }
+  & > * {position: relative;width: 100%;}
+}
+
+//Flex type elements
+grid {display: grid; gap: 2px;}
+grid > * {justify-self: stretch; align-self: stretch;}
+flex {display: flex;}
+
+//Force display type for certain unadded elements
+container, submenu {display: block;}
+item {display: list-item;}
+spacer {display: inline-block;}
+plaster {display: none;}
+
+//Submenu class and subhandlers
+nav.submenus {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: 1;
+  text-align: center;
+  overflow: visible;
+  //Container and children
+  container {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    
+    item {
+      a {
+        display: inline-block;
+        padding: 10px 20px;
+        text-decoration: none;
+        position: relative;
+        vertical-align: bottom;
+      }
+
+      &:hover > submenu {
+        display: block;
+      }
+    }
+    //Submenu and children
+    submenu {
+      position: absolute;
+      top: 100%;
+      padding-left: 15%;
+      display: none;
+      item {
+        position: relative;
+      }
+      submenu {
+        left: 100%;
+        top: 0;
+      }
+    }
+  }
+  //Submenu special cases
+  & > container > item {
+    float: left;
+  }
+  & > container > item > a {
+    padding: 10px 20px 15px 20px;
+  }
+}

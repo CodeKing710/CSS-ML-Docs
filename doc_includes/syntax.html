@@ -1,0 +1,71 @@
+<head>
+    <style>
+        code {display: inline-block; background: #999; color: white; padding: 3px; border-radius: 8px;}
+        body {box-sizing:border-box;margin:10px;padding:0;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
+    </style>
+</head>
+<body>
+    <h1>Syntax &amp; Features</h1>
+    <p>In this section we will cover moreso the layout changes and attributes that are available to use because the syntax is just HTML and this code can intermingle with normal pre-existing HTML. In a later section we will introduce another tool that you should already be using, but if you started here then you might not know and that is the PlasterLang JS Integration library import, listed as <code>plasterlang.js</code> in the directory. It will convert PlasterLang source code into JS source code and execute it. The language will have some limitations as to what it will parse into JS code but that will be covered later.</p>
+
+    <h2>CSS API Tag References</h2>
+    <p>Assuming you like using UI frameworks like Bootstrap and MaterialUI or using CSS APIs such as flexbox and grid, then this upgrade is perfect for you. It'll help save time in writing that timelessly repeated CSS code to layout the page properly. One very common web design layout is to have a header, navigation bar, a main section of content encapsulated by a broad container (may contain a sidebar navigation or other sidebar content), and a footer. With PLACSS, that can all be done with tags like so:</p>
+    <pre><code>
+&lt;body&gt;
+    &lt;wrapper&gt;
+        &lt;header&gt;
+            &lt;flex attributes...&gt;
+                &lt;a&gt;nav-item&lt;/a&gt;
+                &lt;a&gt;nav-item&lt;/a&gt;
+                &lt;a&gt;nav-item&lt;/a&gt;
+                &lt;a&gt;nav-item&lt;/a&gt;
+            &lt;/flex&gt;
+        &lt;/header&gt;
+        &lt;main&gt;
+            &lt;grid attributes...&gt;
+            &lt;/grid&gt;
+        &lt;/main&gt;
+        &lt;footer&gt;
+            &lt;spacer attributes...&gt;&lt;/spacer&gt;
+            &lt;flex attributes...&gt;
+                &lt;a&gt;nav-item&lt;/a&gt;
+                &lt;a&gt;nav-item&lt;/a&gt;
+                &lt;a&gt;nav-item&lt;/a&gt;
+                &lt;a&gt;nav-item&lt;/a&gt;
+            &lt;/flex&gt;
+            &lt;spacer attributes...&gt;&lt;/spacer&gt;
+        &lt;/footer&gt;
+    &lt;/wrapper&gt;
+&lt;/body&gt;
+    </code></pre>
+    <p>Now let's get into what tags are available and their attributes</p>
+
+    <h3>The <code>&lt;wrapper&gt;</code> tag</h3>
+    <p>This tag is a special kind of container that is used to help align inner content containers. This is all predefined and it will try to align everything based on the tags. The inner tags must be <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, and <code>&lt;footer&gt;</code> exclusively in that order. Those tags have semantic meaning in HTML5 but here that semantic meaning is put into true layout right away. There isn't really any tweakable settings for this tag since the layout design is already responsive by default. Onto the next one.</p>
+
+    <h3>The <code>&lt;container&gt;</code>, <code>&lt;spacer&gt;</code>, <code>&lt;flex&gt;</code>, and <code>&lt;grid&gt;</code> tags</h3>
+    <p>This group of tags will save you so much time in both HTML and css code writing. <code>&lt;container&gt;</code> is a general block-level container that can either be moved to a specific spot or let to fill up its parent container space. Below is a list of attributes and their functions.</p>
+    <ul>
+        <li>w="WIDTH"</li>
+        <li>h="HEIGHT"</li>
+        <li>left="MOVE_LEFT"</li>
+        <li>right="MOVE_RIGHT" (doesn't work if left exists)</li>
+        <li>up="MOVE_UP"</li>
+        <li>down="MOVE_DOWN" (doesn't work if up exists)</li>
+    </ul>
+    <p>The <code>&lt;flex&gt;</code> tag is a container link to the flexbox API. It has attribute support for all the flexbox properties but in an easy to use and modify format. Here is the list of attributes.</p>
+    <ul>
+        <li>wrap - A boolean value that is false if not there</li>
+        <li>row - A boolean value that isn't set if non existent</li>
+        <li>row-reverse - A boolean value that isn't set if non existent</li>
+        <li>column - A boolean value that isn't set if non existent</li>
+        <li>column-reverse - A boolean value that isn't set if non existent</li>
+        <li>fdir - Accepts the above attributes as strings</li>
+        <li>flow - Old-fashioned way of defining wrap and direction</li>
+        <li>justify - Shorthand to the <code>justify-content</code> property</li>
+        <li>v-align - Accepts both one and two arguments, for single arguments it will double set both vertical alignment properties that flexbox offers, otherwise it will accept values for <code>align-content</code> and <code>justify-content</code> respectively</li>
+        <li>h-align - Same as v-align, works on horizontal alignment properties, using <code>align-items</code> and <code>justify-items</code> respectively.</li>
+    </ul>
+    <p>Inner children of this flex container can use the <code>order</code> and <code>flex-size</code> attributes to align themselves or define their size within the flexbox. These function the same as they do in css (flex-size = flex-basis, flex-grow, and flex-shrink). The <code>&lt;spacer&gt;</code> tag is somewhat special since it does the job we used to assign to div tags. it has only 2 attributes and if they're omitted the spacer will fill its space according to the size of its parent. It is generally used in the way where the width is omitted so it spans 100% of the container with an according height. Super basic functionality, will save you so much hassle and tears with the CSS portion. Final container we will cover is the <code>&lt;grid&gt;</code> tag. This tag streamlines a lot of grid's confusing properties into nice easy to understand properties. The purpose of this is to let PLACSS decide how the grid should be laid out if you don't know how many grid rows or columns you need to contain your content, or what content should span multiple rows/columns. The grid tag itself only has a few attributes, <code>rows</code>, <code>cols</code>, and <code>gap</code>. Look familiar? It should, those attributes resemble that of a table. YAY! Finally, someone improved HTML tables and removed the convolution from them! *your welcome, your welcome* anyway, this simplifies the templating that occurs by accepting a special "auto" value that will automatically count the sub elements in the grid and arrange them in a perfect row or column, almost to mimic the flexbox justify-content and align-content properties. For now the current iteration of PLACSS grid support doesn't support grid areas or full auto alignment but future iterations plan to support dual auto and the area property for even easier grid alignment creation. The last feature we will cover for this container type is the attributes the inner children elements can carry to define row or column spanning via <code>rowspan</code> and <code>colspan</code>. Just define how many rows or columns you want the element to cover and it will work its magic.</p>
+    <p>If anything more gets added to this library the documentation will get updated along with it, but for now that's all for syntax. Time for the <a href="./indeps.html">next section</a></p>
+</body>

@@ -1,0 +1,11 @@
+<head>
+    <style>
+        code {display: inline-block;background: #999; color: white; padding: 3px; border-radius: 8px;}
+        body {box-sizing:border-box;margin:10px;padding:0;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
+    </style>
+</head>
+<body>
+    <h1>Writing Dependencies</h1>
+    <p>Ah yes, the best part about this whole thing; writing your own functions to be included as dependencies through the Dependency Factory. It couldn't be easier, all you need to do is put your function(s) name(s) into the <code>addDeps()</code> function. This function has two arguments; the first is to define whether it needs run before or after pageload, the second to hold the first function, but you can pass as many parameters as you want after that for function names and it will run and add them.</p>
+    <p>NEAT FEATURE ALERT! Did you know when your function is called by the dependency_factory it will automatically assign your functions context to the window? Yup, you heard right, you have access to all the window functions provided by the web browser, so you can interact with the page itself. If you prefer to change the context just assign a new variable the context you want to use, preferably named <code>that</code> so there is separation between <code>this</code> context and <code>that</code> context. Onto the <a href="./pl.html">next section</a></p>
+</body>

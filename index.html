@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>PLACSS Markup Language</title>
+        <link rel="stylesheet" type="text/css" media="screen" href="./css/placss.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="./css/main.css" />
+        <!-- MUST BE AT TOP OF SCRIPT LIST -->
+        <script src="./js/dependency_factory.js"></script>
+        <script src="./js/placss.js"></script>
+
+        <!-- CONTINUE LINKING YOUR SCRIPTS HERE -->
+        <script>
+            //MAIN function
+            function MAIN() {
+
+            }
+
+            //Install Dependencies
+            installDeps();
+        </script>
+    </head>
+    <body>
+        <wrapper>
+            <header>
+                <h1>Welcome to PLACSS!</h1>
+                <nav>
+                    <flex justify="space-evenly" wrap >
+                        <a href="./index.html">Home</a>
+                        <a href="./template.html">Template</a>
+                        <a href="./documentation.html">Docs</a>
+                    </flex>
+                </nav>
+            </header>
+            <main>
+                <flex>
+                    <p>Hello! This is PLACSS, PlasterLangs web api for building webpage layouts with ease. With predefined tag and attribute layouts based on what tag you use, you can write out a nice CRAP complient webpage within minutes!</p>
+                </flex>
+            </main>
+            <footer>
+                <spacer w="100%" h="1/3"></spacer>
+                <flex justify="space-evenly" h-align="center" row nowrap>
+                    <a href="./index.html">Homepage</a>
+                    <a href="./template.html">Webpage Template</a>
+                    <a href="./documentation.html">Docs</a>
+                </flex>
+                <spacer w="100%" h="0.333"></spacer>
+            </footer>
+        </wrapper>
+    </body>
+</html>

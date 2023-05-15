@@ -1,0 +1,11 @@
+<head>
+    <style>
+        code {display: inline-block; background: #999; color: white; padding: 3px; border-radius: 8px;}
+        body {box-sizing:border-box;margin:10px;padding:0;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
+    </style>
+</head>
+<body>
+    <h1>Setup</h1>
+    <p>With every webpage body must come a hidden header that links all the files required to run the page, and that's no different here. The tool relies on all prexisting webpage design it just refactors how the custom elements will show up, the DOM can stil recognize any tag with text and attributes as an element even if it isn't predefined as a web element. HTML is just a special kind of XML data structure that supports comments so it makes sense to be able to do things like this. To use PLACSS, you need to first get your HTML frame started with the usual <code>&lt;!DOCTYPE html&gt;</code>, <code>&lt;head&gt;</code>, and <code>&lt;body&gt;</code> tags. There is a copiable template located on the navbar if you would like to skip the nitty gritty.</p>
+    <p>PLACSS uses a Plaster JS library import called <code>dependency_factory.js</code>. This is a special library where you can even add your own dependencies but we will cover that later. So first include the dependency factory as one of the first scripts in your document via <code>&lt;script src="PATH_TO_/dependency_factory.js"&gt;&lt;/script&gt;</code>. Even before all of this you should link in the CSS via <code>&lt;link rel="stylesheet" type="text/css" media="screen" href="PATH_TO_/placss.css" /&gt;</code> so the tags can get their predefined css properties. Now after the <code>dependency_factory.js</code> insert <code>&lt;script src="PATH/placss.js&gt;&lt;/script&gt;</code>. The final thing you will need is to have another script tag run the <code>installDeps();</code> function to install the added dependencies. You are now free to use PLACSS, we will cover syntax and features in the <a href="./syntax.html">next section</a>.</p>
+</body>

@@ -1,0 +1,23 @@
+@function darken-bg($bg) {
+  $darkened: darken($bg, 20%);
+  @debug $darkened;
+  @return $darkened;
+}
+@function set-text($bg) {
+  @return adjust-color(black, $lightness: 100 - lightness($bg));
+}
+
+@mixin align($pxx,$pxy) {
+  position: absolute;
+  top: $pxy;
+  left: $pxx;
+}
+@mixin fix() {
+  position: sticky;
+  top: 0;
+  left: 0;
+}
+@mixin set-colors($color) {
+  background: $color;
+  color: set-text($color);
+}
